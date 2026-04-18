@@ -43,12 +43,6 @@ def remove_todo(i):
     state.todos.pop(i)
 
 
-def add_todo():
-    state.todos.append(Todo(text=state.new_item_text, is_done=state.new_item_done))
-    state.new_item_text = ""
-    state.new_item_done = False
-
-
 def check_todo(i, new_value):
     state.todos[i].is_done = new_value
 
@@ -64,29 +58,6 @@ with st.container(horizontal_alignment="center"):
         anchor=False,
     )
 
-with st.form(key="new_item_form", border=False):
-    with st.container(
-        horizontal=True,
-        vertical_alignment="bottom",
-    ):
-        st.text_input(
-            "New item",
-            label_visibility="collapsed",
-            placeholder="Add to-do item",
-            key="new_item_text",
-        )
-
-        st.form_submit_button(
-            "Add",
-            icon=":material/add:",
-            on_click=add_todo,
-        )
-
-    st.checkbox(
-        "Afegir com completada",
-        value=False,
-        key="new_item_done",
-    )
 
 if state.todos:
     with st.container(gap=None, border=True):
