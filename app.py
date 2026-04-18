@@ -17,7 +17,7 @@ import streamlit as st
 from dataclasses import dataclass, field
 import uuid
 
-st.set_page_config(page_title="Tasques Pere", page_icon=":memo:")
+st.set_page_config(page_title="Tasques Ovidi", page_icon=":memo:")
 
 # Declare alias for st.session_state, just for convenience.
 state = st.session_state
@@ -38,7 +38,7 @@ Transcriure Puteolanus
 
 Omplir excel Puteolanus
 Corregir xml Puteolanus
-Enviar a Pere Comitibus i Puteolanus + qüestions
+Enviar Comitibus i Puteolanus + qüestions a P
 *Comitibus: què ha canviat
 *mirar correu i whatsapp que li havia enviat
 
@@ -91,7 +91,7 @@ def delete_all_checked():
 
 with st.container(horizontal_alignment="center"):
     st.title(
-        ":orange[:material/checklist:] Tasques Pere",
+        ":orange[:material/checklist:] Tasques Ovidi",
         width="content",
         anchor=False,
     )
