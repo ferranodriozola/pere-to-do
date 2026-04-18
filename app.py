@@ -32,9 +32,9 @@ class Todo:
 
 text = """
 Transcriure Puteolanus
-(X) *Dedicatòria
+(X)*Dedicatòria
 *Vida
-*Índex
+(X)*Índex
 
 Omplir excel Puteolanus
 Corregir xml Puteolanus
@@ -61,7 +61,7 @@ def converteix_text_a_todos(text: str) -> list[Todo]:
 
     for raw_line in text.strip("\n").splitlines():
         line = raw_line.strip()
-        is_done = line.startswith("(X) ")
+        is_done = line.startswith("(X)")
 
         if is_done:
             line = line[4:].lstrip()
