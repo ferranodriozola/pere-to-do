@@ -32,7 +32,7 @@ class Todo:
 
 text = """
 Transcriure Puteolanus
-*Dedicatòria
+(X) *Dedicatòria
 *Vida
 *Índex
 
