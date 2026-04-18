@@ -64,7 +64,7 @@ def converteix_text_a_todos(text: str) -> list[Todo]:
         is_done = line.startswith("(X)")
 
         if is_done:
-            line = line[4:].lstrip()
+            line = line[3:].lstrip()
 
         todos.append(Todo(text=line, is_done=is_done))
 
