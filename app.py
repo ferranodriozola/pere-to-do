@@ -29,29 +29,53 @@ class Todo:
     is_done: bool = False
     uid: uuid.UUID = field(default_factory=uuid.uuid4)
 
+text = """
+Transcriure Puteolanus
+(X) *Dedicatòria
+*Vida
+*Índex
+ 
+Omplir excel Puteolanus
+Corregir xml Puteolanus
+Enviar a Pere Comitibus i Puteolanus + qüestions
+*Comitibus: què ha canviat
+*mirar correu i whatsapp que li havia enviat
+ 
+Creador xml personatges
+*csv persones drive
+*csv llocs drive
+*db drive (occupation)
+*db drive (certainty)
+*gestionar db en línea amb el generador xml normal en local:
+*db drive (languages) (!!)
+*db drive (city) (!!)
+*db drive (country) (!!)
+*fer python persones
+*fer python llocs
+"""
+
+
+def converteix_text_a_todos(text: str) -> list[Todo]:
+    todos = []
+
+    # Elimina només els salts inicial/final del bloc multilínia,
+    # però preserva les línies en blanc internes com a tasques.
+    for raw_line in text.strip("\n").splitlines():
+        line = raw_line.strip()
+        is_done = line.startswith("(X) ")
+
+        if is_done:
+            line = line[4:].lstrip()
+
+        todos.append(Todo(text=line, is_done=is_done))
+
+    return todos
+
+
+text_cuinat = converteix_text_a_todos(text)
 
 if "todos" not in state:
-    state.todos = [
-        Todo(text="Transcriure Puteolanus"),
-        Todo(text="*Dedicatòria", is_done=True),
-        Todo(text="*Vida"),
-        Todo(text="*Índex"),
-        Todo(text="Omplir excel Puteolanus"),
-        Todo(text="Corregir xml Puteolanus"),
-        Todo(text="Enviar a Pere Comitibus i Puteolanus + qüestions"),
-        Todo(text="*Comitibus: què ha canviat"),
-        Todo(text="*mirar correu i whatsapp que li havia enviat"),
-        Todo(text="Creador xml personatges"),
-        Todo(text="*csv persones drive"),
-        Todo(text="*csv llocs drive"),
-        Todo(text="*db drive (occupation)"),
-        Todo(text="*db drive (certainty)"),
-        Todo(text="*gestionar db en línea amb el generador xml normal en local:"),
-        Todo(text="*db drive (languages) (!!)"),
-        Todo(text="*db drive (city) (!!)"),
-        Todo(text="*db drive (country) (!!)"),
-        Todo(text="*fer python persones"),
-        Todo(text="*fer python llocs"),    ]
+    state.todos = text_cuinat
 
 
 def remove_todo(i):
@@ -68,7 +92,7 @@ def delete_all_checked():
 
 with st.container(horizontal_alignment="center"):
     st.title(
-        ":orange[:material/checklist:] To-do list",
+        ":orange[:material/checklist:] Tasques Pere",
         width="content",
         anchor=False,
     )
