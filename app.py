@@ -97,6 +97,16 @@ with st.container(horizontal_alignment="center"):
     )
 
 
+with st.container(horizontal=True, horizontal_alignment="center"):
+    st.button(
+        ":small[Delete all checked]",
+        icon=":material/delete_forever:",
+        type="tertiary",
+        on_click=delete_all_checked,
+        disabled=not state.todos,
+    )
+
+
 if state.todos:
     with st.container(gap=None, border=True):
         for i, todo in enumerate(state.todos):
@@ -116,14 +126,6 @@ if state.todos:
                     args=[i],
                     key=f"delete_{i}",
                 )
-
-    with st.container(horizontal=True, horizontal_alignment="center"):
-        st.button(
-            ":small[Delete all checked]",
-            icon=":material/delete_forever:",
-            type="tertiary",
-            on_click=delete_all_checked,
-        )
 
 else:
     st.info("No to-do items. Go fly a kite! :material/family_link:")
