@@ -31,11 +31,11 @@ class Todo:
 
 
 text = """
-Transcriure Puteolanus
+(X)Transcriure Puteolanus
 (X)*Dedicatòria
-*Vida
+(X)*Vida
 (X)*Índex
-
+(X)
 Omplir excel Puteolanus
 Corregir xml Puteolanus
 Enviar Comitibus i Puteolanus + qüestions a P
