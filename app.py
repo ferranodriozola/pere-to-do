@@ -31,16 +31,9 @@ class Todo:
 
 
 text = """
-(X)Transcriure Puteolanus
-(X)*Dedicatòria
-(X)*Vida
-(X)*Índex
-(X)
-Omplir excel Puteolanus
-Corregir xml Puteolanus
-Enviar Comitibus i Puteolanus + qüestions a P
-*Comitibus: què ha canviat
-*mirar correu i whatsapp que li havia enviat
+(X)Omplir excel Puteolanus
+Generar xml Puteolanus
+Corregir manualment xml Puteolanus
 
 Creador xml personatges
 *csv persones drive
